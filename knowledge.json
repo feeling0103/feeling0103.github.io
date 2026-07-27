@@ -1,42 +1,15 @@
 {
-  "updated_at": "2026-07-27 11:34:09",
-  "updated_ts": 1785123249,
-  "total_items": 65,
+  "updated_at": "2026-07-27 13:02:32",
+  "updated_ts": 1785128552,
+  "total_items": 58,
   "sources": {
     "B站": 24,
     "GitHub": 2,
     "掘金": 18,
-    "精选": 27
+    "精选": 6
   },
   "categories": {
     "大数据技术": [
-      {
-        "title": "📖 大数据学习路线图（全网最全）",
-        "url": "https://zhuanlan.zhihu.com/p/257657513",
-        "desc": "从零基础到就业，完整的大数据技术栈学习路径",
-        "source": "知乎精选",
-        "category": "大数据技术",
-        "type": "article",
-        "ts": 1785123249
-      },
-      {
-        "title": "📖 Hadoop vs Spark vs Flink 区别一篇讲清楚",
-        "url": "https://zhuanlan.zhihu.com/p/349621549",
-        "desc": "三大计算引擎的定位、优缺点和适用场景对比",
-        "source": "知乎精选",
-        "category": "大数据技术",
-        "type": "article",
-        "ts": 1785123249
-      },
-      {
-        "title": "📖 数据仓库分层方法论",
-        "url": "https://zhuanlan.zhihu.com/p/395049593",
-        "desc": "ODS/DWD/DWS/ADS 分层设计与建模实践",
-        "source": "知乎精选",
-        "category": "大数据技术",
-        "type": "article",
-        "ts": 1785123249
-      },
       {
         "title": "【Power BI数据可视化】Power BI图表可视化实战课程分享-销售数据分析 PowerBI/SPSS/tableau/fineBI（附课件源码资料）",
         "url": "https://www.bilibili.com/video/BV1xv411J7iA",
@@ -300,33 +273,6 @@
         "ts": 1785123249
       },
       {
-        "title": "📖 算法与数据结构面试宝典",
-        "url": "https://zhuanlan.zhihu.com/p/54041935",
-        "desc": "高频算法题及解题思路总结",
-        "source": "知乎精选",
-        "category": "编程开发",
-        "type": "article",
-        "ts": 1785123249
-      },
-      {
-        "title": "📖 Python 最全学习路线图",
-        "url": "https://zhuanlan.zhihu.com/p/258705801",
-        "desc": "从基础语法到爬虫/Web/数据分析的完整路径",
-        "source": "知乎精选",
-        "category": "编程开发",
-        "type": "article",
-        "ts": 1785123249
-      },
-      {
-        "title": "📖 Git & GitHub 使用指南",
-        "url": "https://zhuanlan.zhihu.com/p/30044692",
-        "desc": "版本控制+协作开发，从入门到团队协作",
-        "source": "知乎精选",
-        "category": "编程开发",
-        "type": "article",
-        "ts": 1785123249
-      },
-      {
         "title": "Python入门零基础必看教程，这绝对是今年最全最细的教程，全程干货无废话！python|程序员|python入门||人工智能|python零基础",
         "url": "https://www.bilibili.com/video/BV17G4y1U7jh",
         "desc": "Python 不是单一领域的语言，而是 “全栈型” 工具，主要应用在以下方向：\n数据分析与可视化：处理 Excel 无法应对的海量数据，生成专业图表，是职场加分…",
@@ -380,33 +326,6 @@
         "category": "AI/机器学习",
         "author": "甲维斯",
         "stats": "8.5k 阅读 · 62 赞 · 人工智能",
-        "type": "article",
-        "ts": 1785123249
-      },
-      {
-        "title": "📖 机器学习入门路线",
-        "url": "https://zhuanlan.zhihu.com/p/255552212",
-        "desc": "吴恩达课程+西瓜书+实战路线",
-        "source": "知乎精选",
-        "category": "AI/机器学习",
-        "type": "article",
-        "ts": 1785123249
-      },
-      {
-        "title": "📖 深度学习框架对比：PyTorch vs TensorFlow",
-        "url": "https://zhuanlan.zhihu.com/p/28666196",
-        "desc": "两大框架优劣对比及选型建议",
-        "source": "知乎精选",
-        "category": "AI/机器学习",
-        "type": "article",
-        "ts": 1785123249
-      },
-      {
-        "title": "📖 NLP 自然语言处理入门",
-        "url": "https://zhuanlan.zhihu.com/p/44163575",
-        "desc": "分词、词向量、文本分类基础",
-        "source": "知乎精选",
-        "category": "AI/机器学习",
         "type": "article",
         "ts": 1785123249
       },
@@ -501,33 +420,6 @@
         "ts": 1785123249
       },
       {
-        "title": "📖 大数据专业就业方向和薪资",
-        "url": "https://zhuanlan.zhihu.com/p/362846462",
-        "desc": "数据分析师/大数据工程师/算法工程师岗位拆解",
-        "source": "知乎精选",
-        "category": "职业发展",
-        "type": "article",
-        "ts": 1785123249
-      },
-      {
-        "title": "📖 数据分析面试高频30题",
-        "url": "https://zhuanlan.zhihu.com/p/35649008",
-        "desc": "SQL/统计学/业务分析 面试真题",
-        "source": "知乎精选",
-        "category": "职业发展",
-        "type": "article",
-        "ts": 1785123249
-      },
-      {
-        "title": "📖 简历这样写，面试邀约多3倍",
-        "url": "https://zhuanlan.zhihu.com/p/26059783",
-        "desc": "STAR法则+项目包装+量化成果",
-        "source": "知乎精选",
-        "category": "职业发展",
-        "type": "article",
-        "ts": 1785123249
-      },
-      {
         "title": "25年依然很火的系统性/技术向/商业向/都有的 Python数据分析师特训营全套84节视频完结版（就业向/零基础友好）",
         "url": "https://www.bilibili.com/video/BV1HJ411j7NG",
         "desc": "ps：老师会不定期来答疑~不要只收藏不三连啊，感恩了!\n针对数据分析零基础，转行数据科学、业务分析，数据相关从业人员。每个知识点都结合代码打了出来，根据实际数据…",
@@ -574,36 +466,45 @@
     ],
     "基金理财": [
       {
-        "title": "📖 大学生基金定投入门指南",
-        "url": "https://zhuanlan.zhihu.com/p/136953303",
-        "desc": "每月500起投、选基方法、止盈策略",
-        "source": "知乎精选",
-        "category": "基金理财",
-        "type": "article",
-        "ts": 1785123249
-      },
-      {
-        "title": "📖 指数基金定投：懒人投资法",
-        "url": "https://zhuanlan.zhihu.com/p/26505658",
-        "desc": "沪深300+中证500 定投策略详解",
-        "source": "知乎精选",
-        "category": "基金理财",
-        "type": "article",
-        "ts": 1785123249
-      },
-      {
-        "title": "📖 投资理财书单推荐",
-        "url": "https://zhuanlan.zhihu.com/p/33032189",
-        "desc": "《富爸爸穷爸爸》《小狗钱钱》《指数基金投资指南》",
-        "source": "知乎精选",
-        "category": "基金理财",
-        "type": "article",
-        "ts": 1785123249
-      },
-      {
         "title": "🏆 且慢 — 基金定投分析与组合",
         "url": "https://qieman.com/",
         "desc": "基金筛选、定投回测、资产配置，学生党入门友好",
+        "source": "精选推荐",
+        "category": "基金理财",
+        "type": "tool",
+        "ts": 0
+      },
+      {
+        "title": "📖 大学生基金入门：每月500怎么投",
+        "url": "https://www.bilibili.com/video/BV1Ba4y1f7Ej",
+        "desc": "基金定投选基方法+止盈策略，学生党友好",
+        "source": "精选·B站",
+        "category": "基金理财",
+        "type": "video",
+        "ts": 1785128552
+      },
+      {
+        "title": "📖 指数基金定投从入门到精通",
+        "url": "https://www.bilibili.com/video/BV1kA41187jF",
+        "desc": "沪深300+中证500 定投策略实操演示",
+        "source": "精选·B站",
+        "category": "基金理财",
+        "type": "video",
+        "ts": 1785128552
+      },
+      {
+        "title": "💡 天天基金网 — 基金筛选器",
+        "url": "https://fund.eastmoney.com/",
+        "desc": "按收益率/规模/经理筛选基金，查看历史净值",
+        "source": "精选推荐",
+        "category": "基金理财",
+        "type": "tool",
+        "ts": 0
+      },
+      {
+        "title": "💡 雪球 — 投资交流社区",
+        "url": "https://xueqiu.com/",
+        "desc": "看大V投资思路，学习基本面分析",
         "source": "精选推荐",
         "category": "基金理财",
         "type": "tool",
@@ -612,36 +513,45 @@
     ],
     "健身健康": [
       {
-        "title": "📖 宿舍/居家健身完全方案",
-        "url": "https://zhuanlan.zhihu.com/p/59359833",
-        "desc": "无需器械，徒手训练全身的方案",
-        "source": "知乎精选",
-        "category": "健身健康",
-        "type": "article",
-        "ts": 1785123249
-      },
-      {
-        "title": "📖 科学饮食：增肌减脂怎么吃",
-        "url": "https://zhuanlan.zhihu.com/p/25640642",
-        "desc": "蛋白质/碳水/脂肪配比+食堂实操指南",
-        "source": "知乎精选",
-        "category": "健身健康",
-        "type": "article",
-        "ts": 1785123249
-      },
-      {
-        "title": "📖 体态矫正：驼背/圆肩/骨盆前倾",
-        "url": "https://zhuanlan.zhihu.com/p/47912081",
-        "desc": "久坐学生必看的体态改善方案",
-        "source": "知乎精选",
-        "category": "健身健康",
-        "type": "article",
-        "ts": 1785123249
-      },
-      {
         "title": "🏆 Keep — 健身训练计划",
         "url": "https://www.keep.com/",
         "desc": "免费居家/宿舍训练课程，增肌减脂瑜伽全覆盖",
+        "source": "精选推荐",
+        "category": "健身健康",
+        "type": "tool",
+        "ts": 0
+      },
+      {
+        "title": "🎬 宿舍徒手健身：20分钟全身训练",
+        "url": "https://www.bilibili.com/video/BV1fJ411U7y1",
+        "desc": "无需器械，宿舍就能练的全身HIIT方案",
+        "source": "精选·B站",
+        "category": "健身健康",
+        "type": "video",
+        "ts": 1785128552
+      },
+      {
+        "title": "🎬 增肌减脂饮食指南：食堂版",
+        "url": "https://www.bilibili.com/video/BV1rJ411q71L",
+        "desc": "蛋白质/碳水/脂肪怎么搭配，学校食堂实操指南",
+        "source": "精选·B站",
+        "category": "健身健康",
+        "type": "video",
+        "ts": 1785128552
+      },
+      {
+        "title": "🎬 体态矫正跟练：告别驼背圆肩",
+        "url": "https://www.bilibili.com/video/BV1PA411b7WT",
+        "desc": "久坐学生必做，每天10分钟体态改善训练",
+        "source": "精选·B站",
+        "category": "健身健康",
+        "type": "video",
+        "ts": 1785128552
+      },
+      {
+        "title": "💡 Nike Training Club — 免费训练App",
+        "url": "https://www.nike.com/cn/ntc-app",
+        "desc": "Nike官方免费健身App，185+训练课程",
         "source": "精选推荐",
         "category": "健身健康",
         "type": "tool",
@@ -650,36 +560,63 @@
     ],
     "大学生成长": [
       {
-        "title": "📖 大学四年如何高效度过",
-        "url": "https://zhuanlan.zhihu.com/p/39024203",
-        "desc": "大一到大四每个阶段的重点和避坑指南",
-        "source": "知乎精选",
-        "category": "大学生成长",
-        "type": "article",
-        "ts": 1785123249
-      },
-      {
-        "title": "📖 给大学生的100条忠告",
-        "url": "https://zhuanlan.zhihu.com/p/23060080",
-        "desc": "来自毕业5年学长学姐的血泪经验",
-        "source": "知乎精选",
-        "category": "大学生成长",
-        "type": "article",
-        "ts": 1785123249
-      },
-      {
-        "title": "📖 费曼学习法：最有效的学习方法",
-        "url": "https://zhuanlan.zhihu.com/p/88221381",
-        "desc": "用教别人的方式学知识，理解率提升400%",
-        "source": "知乎精选",
-        "category": "大学生成长",
-        "type": "article",
-        "ts": 1785123249
-      },
-      {
         "title": "🏆 中国大学MOOC",
         "url": "https://www.icourse163.org/",
         "desc": "985高校公开课：大数据、统计学、机器学习、Python",
+        "source": "精选推荐",
+        "category": "大学生成长",
+        "type": "course",
+        "ts": 0
+      },
+      {
+        "title": "🎬 大学四年怎么过才算不浪费",
+        "url": "https://www.bilibili.com/video/BV1Cg4y1q7tS",
+        "desc": "大一到大四每个阶段的重点和避坑指南",
+        "source": "精选·B站",
+        "category": "大学生成长",
+        "type": "video",
+        "ts": 1785128552
+      },
+      {
+        "title": "🎬 费曼学习法：世界上最好的学习法",
+        "url": "https://www.bilibili.com/video/BV1ra4y1H7ih",
+        "desc": "用教别人的方式学知识，理解率大幅提升",
+        "source": "精选·B站",
+        "category": "大学生成长",
+        "type": "video",
+        "ts": 1785128552
+      },
+      {
+        "title": "🎬 自律上瘾的科学方法",
+        "url": "https://www.bilibili.com/video/BV1CA41187Kx",
+        "desc": "番茄工作法+习惯养成，告别拖延症",
+        "source": "精选·B站",
+        "category": "大学生成长",
+        "type": "video",
+        "ts": 1785128552
+      },
+      {
+        "title": "💡 网易公开课 — TED/名校课程",
+        "url": "https://open.163.com/",
+        "desc": "免费看TED演讲、哈佛耶鲁公开课",
+        "source": "精选推荐",
+        "category": "大学生成长",
+        "type": "course",
+        "ts": 0
+      },
+      {
+        "title": "💡 得到App — 每天听本书",
+        "url": "https://www.dedao.cn/",
+        "desc": "碎片时间听书/课程，扩展知识面",
+        "source": "精选推荐",
+        "category": "大学生成长",
+        "type": "tool",
+        "ts": 0
+      },
+      {
+        "title": "💡 Coursera — 全球名校课程",
+        "url": "https://www.coursera.org/",
+        "desc": "斯坦福/CMU 的数据科学、机器学习课程（可申请助学金）",
         "source": "精选推荐",
         "category": "大学生成长",
         "type": "course",
