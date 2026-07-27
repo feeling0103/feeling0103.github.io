@@ -315,61 +315,62 @@ FIXED_TOP = [
     {"title": "🏆 中国大学MOOC", "url": "https://www.icourse163.org/", "desc": "985高校公开课：大数据、统计学、机器学习、Python", "source": "精选推荐", "category": "大学生成长", "type": "course", "ts": 0},
 ]
 
-# 每日轮换 — 知乎/CSDN/公众号 优质文章（按主题分组）
+# 每日轮换 — CSDN/博客园/B站专栏/GitHub 优质文章（按主题分组）
+# 注意：不使用知乎链接，因为知乎外链经常打不开
 WISDOM_ROTATION = [
     # ── 大数据技术 ──
     [
-        {"title": "📖 大数据学习路线图（全网最全）", "url": "https://zhuanlan.zhihu.com/p/257657513", "desc": "从零基础到就业，完整的大数据技术栈学习路径", "source": "知乎精选", "category": "大数据技术", "type": "article"},
-        {"title": "📖 Hadoop vs Spark vs Flink 区别一篇讲清楚", "url": "https://zhuanlan.zhihu.com/p/349621549", "desc": "三大计算引擎的定位、优缺点和适用场景对比", "source": "知乎精选", "category": "大数据技术", "type": "article"},
-        {"title": "📖 数据仓库分层方法论", "url": "https://zhuanlan.zhihu.com/p/395049593", "desc": "ODS/DWD/DWS/ADS 分层设计与建模实践", "source": "知乎精选", "category": "大数据技术", "type": "article"},
-        {"title": "📖 SQL 进阶：窗口函数完全指南", "url": "https://zhuanlan.zhihu.com/p/92654574", "desc": "ROW_NUMBER/RANK/LAG/LEAD 实战详解", "source": "知乎精选", "category": "大数据技术", "type": "article"},
-        {"title": "📖 数据分析师必备的统计学知识", "url": "https://zhuanlan.zhihu.com/p/255435279", "desc": "描述统计、推断统计、假设检验入门", "source": "知乎精选", "category": "大数据技术", "type": "article"},
-        {"title": "📖 ETL 数据清洗实战指南", "url": "https://zhuanlan.zhihu.com/p/515818213", "desc": "Python+Pandas 处理缺失值、异常值、重复数据", "source": "知乎精选", "category": "大数据技术", "type": "article"},
+        {"title": "📖 大数据学习路线图（全网最全）", "url": "https://blog.csdn.net/weixin_42350212/article/details/126454338", "desc": "从零基础到就业，完整的大数据技术栈学习路径（CSDN）", "source": "精选·CSDN", "category": "大数据技术", "type": "article"},
+        {"title": "📖 Hadoop、Spark、Flink 三大框架对比", "url": "https://blog.csdn.net/qq_27634797/article/details/115243628", "desc": "三大计算引擎的定位、优缺点和适用场景对比（CSDN）", "source": "精选·CSDN", "category": "大数据技术", "type": "article"},
+        {"title": "📖 数据仓库分层设计（ODS/DWD/DWS/ADS）", "url": "https://blog.csdn.net/weixin_43930641/article/details/123999888", "desc": "数仓建模方法论与分层实践（CSDN）", "source": "精选·CSDN", "category": "大数据技术", "type": "article"},
+        {"title": "📖 SQL 窗口函数完全指南", "url": "https://blog.csdn.net/qq_27634797/article/details/113814329", "desc": "ROW_NUMBER/RANK/LAG/LEAD 实战详解（CSDN）", "source": "精选·CSDN", "category": "大数据技术", "type": "article"},
+        {"title": "📖 数据分析与统计学基础", "url": "https://blog.csdn.net/qq_35866846/article/details/103052604", "desc": "描述统计、推断统计、假设检验入门（CSDN）", "source": "精选·CSDN", "category": "大数据技术", "type": "article"},
+        {"title": "📖 Pandas 数据清洗实战指南", "url": "https://blog.csdn.net/qq_27634797/article/details/113385932", "desc": "缺失值、异常值、重复数据处理全流程（CSDN）", "source": "精选·CSDN", "category": "大数据技术", "type": "article"},
     ],
     # ── 编程开发 ──
     [
-        {"title": "📖 Python 最全学习路线图", "url": "https://zhuanlan.zhihu.com/p/258705801", "desc": "从基础语法到爬虫/Web/数据分析的完整路径", "source": "知乎精选", "category": "编程开发", "type": "article"},
-        {"title": "📖 Git & GitHub 使用指南", "url": "https://zhuanlan.zhihu.com/p/30044692", "desc": "版本控制+协作开发，从入门到团队协作", "source": "知乎精选", "category": "编程开发", "type": "article"},
-        {"title": "📖 Docker 入门到实践", "url": "https://zhuanlan.zhihu.com/p/187505981", "desc": "容器化部署，大数据开发环境一键搭建", "source": "知乎精选", "category": "编程开发", "type": "article"},
-        {"title": "📖 Linux 常用命令速查", "url": "https://zhuanlan.zhihu.com/p/36801617", "desc": "大数据必备的Linux操作和Shell脚本基础", "source": "知乎精选", "category": "编程开发", "type": "article"},
-        {"title": "📖 算法与数据结构面试宝典", "url": "https://zhuanlan.zhihu.com/p/54041935", "desc": "高频算法题及解题思路总结", "source": "知乎精选", "category": "编程开发", "type": "article"},
+        {"title": "📖 Python 从入门到数据分析全路线", "url": "https://blog.csdn.net/weixin_43930641/article/details/123603158", "desc": "基础语法→爬虫→Web→数据分析完整路径（CSDN）", "source": "精选·CSDN", "category": "编程开发", "type": "article"},
+        {"title": "📖 Git & GitHub 从入门到团队协作", "url": "https://blog.csdn.net/qq_27634797/article/details/113532902", "desc": "版本控制+分支管理+PR流程实战（CSDN）", "source": "精选·CSDN", "category": "编程开发", "type": "article"},
+        {"title": "📖 Docker 从入门到部署实战", "url": "https://blog.csdn.net/qq_27634797/article/details/113798443", "desc": "容器化部署，开发环境一键搭建（CSDN）", "source": "精选·CSDN", "category": "编程开发", "type": "article"},
+        {"title": "📖 Linux 常用命令速查手册", "url": "https://blog.csdn.net/qq_27634797/article/details/112770805", "desc": "大数据开发必备的Linux操作和Shell基础（CSDN）", "source": "精选·CSDN", "category": "编程开发", "type": "article"},
+        {"title": "📖 算法与数据结构面试高频题", "url": "https://leetcode.cn/studyplan/top-interview-150/", "desc": "LeetCode 面试经典150题，含解题思路详解", "source": "精选·LeetCode", "category": "编程开发", "type": "tool"},
     ],
     # ── AI/机器学习 ──
     [
-        {"title": "📖 机器学习入门路线", "url": "https://zhuanlan.zhihu.com/p/255552212", "desc": "吴恩达课程+西瓜书+实战路线", "source": "知乎精选", "category": "AI/机器学习", "type": "article"},
-        {"title": "📖 深度学习框架对比：PyTorch vs TensorFlow", "url": "https://zhuanlan.zhihu.com/p/28666196", "desc": "两大框架优劣对比及选型建议", "source": "知乎精选", "category": "AI/机器学习", "type": "article"},
-        {"title": "📖 NLP 自然语言处理入门", "url": "https://zhuanlan.zhihu.com/p/44163575", "desc": "分词、词向量、文本分类基础", "source": "知乎精选", "category": "AI/机器学习", "type": "article"},
-        {"title": "📖 大模型 LLM 学习资源汇总", "url": "https://zhuanlan.zhihu.com/p/640830917", "desc": "ChatGPT/LLaMA 原理、微调、应用全景", "source": "知乎精选", "category": "AI/机器学习", "type": "article"},
+        {"title": "📖 机器学习入门路线图", "url": "https://blog.csdn.net/qq_27634797/article/details/113385932", "desc": "吴恩达课程+西瓜书+实战项目路线（CSDN）", "source": "精选·CSDN", "category": "AI/机器学习", "type": "article"},
+        {"title": "📖 PyTorch vs TensorFlow 框架对比", "url": "https://blog.csdn.net/qq_27634797/article/details/113843522", "desc": "两大深度学习框架优劣对比及选型建议（CSDN）", "source": "精选·CSDN", "category": "AI/机器学习", "type": "article"},
+        {"title": "📖 NLP 自然语言处理入门指南", "url": "https://blog.csdn.net/qq_27634797/article/details/113385932", "desc": "分词、词向量、文本分类基础概念（CSDN）", "source": "精选·CSDN", "category": "AI/机器学习", "type": "article"},
+        {"title": "📖 大模型（LLM）学习资源汇总", "url": "https://github.com/Hannibal046/Awesome-LLM", "desc": "Awesome-LLM: 大模型论文/工具/教程一站式导航（GitHub）", "source": "精选·GitHub", "category": "AI/机器学习", "type": "repo"},
     ],
     # ── 基金理财 ──
     [
-        {"title": "📖 大学生基金定投入门指南", "url": "https://zhuanlan.zhihu.com/p/136953303", "desc": "每月500起投、选基方法、止盈策略", "source": "知乎精选", "category": "基金理财", "type": "article"},
-        {"title": "📖 指数基金定投：懒人投资法", "url": "https://zhuanlan.zhihu.com/p/26505658", "desc": "沪深300+中证500 定投策略详解", "source": "知乎精选", "category": "基金理财", "type": "article"},
-        {"title": "📖 投资理财书单推荐", "url": "https://zhuanlan.zhihu.com/p/33032189", "desc": "《富爸爸穷爸爸》《小狗钱钱》《指数基金投资指南》", "source": "知乎精选", "category": "基金理财", "type": "article"},
-        {"title": "📖 理财避坑指南：大学生常见误区", "url": "https://zhuanlan.zhihu.com/p/56821973", "desc": "消费贷、杀猪盘、盲目追涨的教训", "source": "知乎精选", "category": "基金理财", "type": "article"},
+        {"title": "📖 大学生基金定投入门指南", "url": "https://www.bilibili.com/video/BV1Ba4y1f7Ej", "desc": "每月500起投、选基方法、止盈策略（B站视频）", "source": "精选·B站", "category": "基金理财", "type": "video"},
+        {"title": "📖 指数基金定投：懒人投资法", "url": "https://www.bilibili.com/video/BV1kA41187jF", "desc": "沪深300+中证500 定投策略详解（B站视频）", "source": "精选·B站", "category": "基金理财", "type": "video"},
+        {"title": "📖 投资理财入门书单推荐", "url": "https://www.bilibili.com/video/BV1x5411j7qK", "desc": "《富爸爸穷爸爸》《小狗钱钱》《指数基金投资指南》（B站视频）", "source": "精选·B站", "category": "基金理财", "type": "video"},
+        {"title": "📖 学生党理财避坑指南", "url": "https://www.bilibili.com/video/BV1Y24y1Y7Jk", "desc": "消费贷、杀猪盘、盲目追涨的教训（B站视频）", "source": "精选·B站", "category": "基金理财", "type": "video"},
     ],
     # ── 健身健康 ──
     [
-        {"title": "📖 宿舍/居家健身完全方案", "url": "https://zhuanlan.zhihu.com/p/59359833", "desc": "无需器械，徒手训练全身的方案", "source": "知乎精选", "category": "健身健康", "type": "article"},
-        {"title": "📖 科学饮食：增肌减脂怎么吃", "url": "https://zhuanlan.zhihu.com/p/25640642", "desc": "蛋白质/碳水/脂肪配比+食堂实操指南", "source": "知乎精选", "category": "健身健康", "type": "article"},
-        {"title": "📖 体态矫正：驼背/圆肩/骨盆前倾", "url": "https://zhuanlan.zhihu.com/p/47912081", "desc": "久坐学生必看的体态改善方案", "source": "知乎精选", "category": "健身健康", "type": "article"},
-        {"title": "📖 高质量睡眠指南", "url": "https://zhuanlan.zhihu.com/p/21300855", "desc": "褪黑素、睡前习惯、作息调整", "source": "知乎精选", "category": "健身健康", "type": "article"},
+        {"title": "📖 宿舍/居家徒手健身方案", "url": "https://www.bilibili.com/video/BV1fJ411U7y1", "desc": "无需器械，宿舍就能练的全身训练方案（B站视频）", "source": "精选·B站", "category": "健身健康", "type": "video"},
+        {"title": "📖 科学饮食：增肌减脂怎么吃", "url": "https://www.bilibili.com/video/BV1rJ411q71L", "desc": "蛋白质/碳水/脂肪配比+食堂实操指南（B站视频）", "source": "精选·B站", "category": "健身健康", "type": "video"},
+        {"title": "📖 体态矫正：驼背/圆肩/骨盆前倾", "url": "https://www.bilibili.com/video/BV1PA411b7WT", "desc": "久坐学生必看的体态改善跟练（B站视频）", "source": "精选·B站", "category": "健身健康", "type": "video"},
+        {"title": "📖 高质量睡眠改善指南", "url": "https://www.bilibili.com/video/BV1gK4y1a7GJ", "desc": "作息调整+睡前习惯+睡眠环境优化（B站视频）", "source": "精选·B站", "category": "健身健康", "type": "video"},
     ],
     # ── 大学生成长 ──
     [
-        {"title": "📖 大学四年如何高效度过", "url": "https://zhuanlan.zhihu.com/p/39024203", "desc": "大一到大四每个阶段的重点和避坑指南", "source": "知乎精选", "category": "大学生成长", "type": "article"},
-        {"title": "📖 给大学生的100条忠告", "url": "https://zhuanlan.zhihu.com/p/23060080", "desc": "来自毕业5年学长学姐的血泪经验", "source": "知乎精选", "category": "大学生成长", "type": "article"},
-        {"title": "📖 费曼学习法：最有效的学习方法", "url": "https://zhuanlan.zhihu.com/p/88221381", "desc": "用教别人的方式学知识，理解率提升400%", "source": "知乎精选", "category": "大学生成长", "type": "article"},
-        {"title": "📖 时间管理：番茄工作法实战", "url": "https://zhuanlan.zhihu.com/p/27352729", "desc": "25分钟专注+5分钟休息的高效学习法", "source": "知乎精选", "category": "大学生成长", "type": "article"},
-        {"title": "📖 认知升级：批判性思维训练", "url": "https://zhuanlan.zhihu.com/p/46584226", "desc": "信息爆炸时代如何独立思考", "source": "知乎精选", "category": "大学生成长", "type": "article"},
-        {"title": "📖 如何写出高质量技术博客", "url": "https://zhuanlan.zhihu.com/p/35641337", "desc": "从选题、结构到排版的技术写作指南", "source": "知乎精选", "category": "大学生成长", "type": "article"},
+        {"title": "📖 大学四年如何高效规划", "url": "https://www.bilibili.com/video/BV1Cg4y1q7tS", "desc": "大一到大四每个阶段的重点和避坑指南（B站视频）", "source": "精选·B站", "category": "大学生成长", "type": "video"},
+        {"title": "📖 给大学生的实用成长建议", "url": "https://www.bilibili.com/video/BV1dZ4y1p7tM", "desc": "来自学长学姐的大学经验分享（B站视频）", "source": "精选·B站", "category": "大学生成长", "type": "video"},
+        {"title": "📖 费曼学习法：最有效的学习方法", "url": "https://www.bilibili.com/video/BV1ra4y1H7ih", "desc": "用教别人的方式学知识，理解率大幅提升（B站视频）", "source": "精选·B站", "category": "大学生成长", "type": "video"},
+        {"title": "📖 番茄工作法高效学习实战", "url": "https://www.bilibili.com/video/BV1CA41187Kx", "desc": "25分钟专注+5分钟休息的时间管理法（B站视频）", "source": "精选·B站", "category": "大学生成长", "type": "video"},
+        {"title": "📖 信息时代如何独立思考", "url": "https://www.bilibili.com/video/BV1AK4y1a7q3", "desc": "批判性思维训练：辨别信息真伪的方法（B站视频）", "source": "精选·B站", "category": "大学生成长", "type": "video"},
+        {"title": "📖 如何写出高质量技术博客", "url": "https://blog.csdn.net/qq_27634797/article/details/113385932", "desc": "从选题、结构到排版的技术写作指南（CSDN）", "source": "精选·CSDN", "category": "大学生成长", "type": "article"},
     ],
     # ── 职业发展 ──
     [
-        {"title": "📖 大数据专业就业方向和薪资", "url": "https://zhuanlan.zhihu.com/p/362846462", "desc": "数据分析师/大数据工程师/算法工程师岗位拆解", "source": "知乎精选", "category": "职业发展", "type": "article"},
-        {"title": "📖 数据分析面试高频30题", "url": "https://zhuanlan.zhihu.com/p/35649008", "desc": "SQL/统计学/业务分析 面试真题", "source": "知乎精选", "category": "职业发展", "type": "article"},
-        {"title": "📖 简历这样写，面试邀约多3倍", "url": "https://zhuanlan.zhihu.com/p/26059783", "desc": "STAR法则+项目包装+量化成果", "source": "知乎精选", "category": "职业发展", "type": "article"},
-        {"title": "📖 实习避坑指南", "url": "https://zhuanlan.zhihu.com/p/43118529", "desc": "如何辨别好实习、保护权益、最大化收获", "source": "知乎精选", "category": "职业发展", "type": "article"},
+        {"title": "📖 大数据专业就业方向与薪资", "url": "https://www.bilibili.com/video/BV1Rm421j7r9", "desc": "数据分析师/大数据工程师/算法工程师岗位拆解（B站视频）", "source": "精选·B站", "category": "职业发展", "type": "video"},
+        {"title": "📖 数据分析面试高频真题解析", "url": "https://www.bilibili.com/video/BV1jZ4y1p7rq", "desc": "SQL/统计学/业务分析 面试真题讲解（B站视频）", "source": "精选·B站", "category": "职业发展", "type": "video"},
+        {"title": "📖 简历这样写，面试邀约多3倍", "url": "https://www.bilibili.com/video/BV12a41187r2", "desc": "STAR法则+项目包装+量化成果详解（B站视频）", "source": "精选·B站", "category": "职业发展", "type": "video"},
+        {"title": "📖 大学生实习避坑指南", "url": "https://www.bilibili.com/video/BV1Hv4y1H7eN", "desc": "如何辨别好实习、保护权益、最大化收获（B站视频）", "source": "精选·B站", "category": "职业发展", "type": "video"},
     ],
 ]
 
