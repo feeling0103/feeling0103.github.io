@@ -12,9 +12,6 @@
 <meta name="apple-mobile-web-app-title" content="成长工作台">
 <link rel="apple-touch-icon" href="/icon-192.png">
 <link rel="apple-touch-icon" sizes="512x512" href="/icon-512.png">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700;900&display=swap" rel="stylesheet">
-<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
 <style>
 /* ==================== Reset & Base ==================== */
 *{margin:0;padding:0;box-sizing:border-box}
@@ -660,18 +657,22 @@ let state = {
   streak:0,
   lastActiveDate:null,
 };
-let charts={};
 
 /* ==================== INIT ==================== */
 function init(){
-  loadData();
-  renderHeader();
-  renderTasks();
-  loadKnowledgeFromJSON();  // Async, will render when done
-  renderReview();
-  renderStats();
-  setupTabs();
-  updateStreak();
+  try {
+    loadData();
+    renderHeader();
+    renderTasks();
+    loadKnowledgeFromJSON();  // Async, will render when done
+    renderReview();
+    renderStats();
+    setupTabs();
+    updateStreak();
+  } catch(e) {
+    console.error('Init error:', e);
+    document.querySelector('.app') && (document.querySelector('.app').innerHTML='<div class="empty-state"><div class="icon">⚠️</div><p>加载出错，请刷新页面重试</p></div>');
+  }
 }
 
 /* ==================== Storage ==================== */
@@ -830,6 +831,7 @@ function deleteTask(catId,idx){
 
 /* ==================== Knowledge ==================== */
 function renderKnowledge(){
+  try {
   const container=document.getElementById('knowledgeContent');
   if (!KNOWLEDGE_DATA) {
     container.innerHTML = knowledgeFailed
@@ -884,6 +886,7 @@ function renderKnowledge(){
     html = '<div class="empty-state"><div class="icon">🔍</div><p>没有找到匹配的资源</p><p style="font-size:0.8rem;color:var(--text-muted)">试试换个关键词或分类</p></div>';
   }
   container.innerHTML = html;
+  } catch(e) { console.error('renderKnowledge error:', e); }
 }
 
 /* ==================== Review ==================== */
@@ -1087,69 +1090,108 @@ function updateStreak(){
 
 /* ==================== Stats ==================== */
 function renderStats(){
-  // Overview cards
-  const today=getToday();
-  const tasks=state.tasks[today]||{};
-  let totalDone=0,totalTasks=0;
-  CATEGORIES.forEach(cat=>{
-    const list=tasks[cat.id]||[];
-    totalDone+=list.filter(t=>t.done).length;
-    totalTasks+=list.length;
-  });
-  const rate=totalTasks>0?Math.round(totalDone/totalTasks*100):0;
-
-  // All-time stats
-  let allDone=0,allTotal=0,activeDays=Object.keys(state.tasks).length;
-  Object.values(state.tasks).forEach(dayTasks=>{
-    Object.values(dayTasks).forEach(list=>{
-      list.forEach(t=>{allTotal++;if(t.done)allDone++;});
+  try {
+    // Overview cards
+    const today=getToday();
+    const tasks=state.tasks[today]||{};
+    let totalDone=0,totalTasks=0;
+    CATEGORIES.forEach(cat=>{
+      const list=tasks[cat.id]||[];
+      totalDone+=list.filter(t=>t.done).length;
+      totalTasks+=list.length;
     });
-  });
+    const rate=totalTasks>0?Math.round(totalDone/totalTasks*100):0;
 
-  document.getElementById('statsOverview').innerHTML=`
-    <div class="overview-card"><div class="ov-icon">📊</div><div class="ov-num">${rate}%</div><div class="ov-label">今日完成率</div></div>
-    <div class="overview-card"><div class="ov-icon">✅</div><div class="ov-num">${allDone}</div><div class="ov-label">累计完成任务</div></div>
-    <div class="overview-card"><div class="ov-icon">🔥</div><div class="ov-num">${state.streak||0}</div><div class="ov-label">连续打卡天数</div></div>
-    <div class="overview-card"><div class="ov-icon">📅</div><div class="ov-num">${activeDays}</div><div class="ov-label">活跃天数</div></div>
-  `;
+    // All-time stats
+    let allDone=0,allTotal=0,activeDays=Object.keys(state.tasks).length;
+    Object.values(state.tasks).forEach(dayTasks=>{
+      Object.values(dayTasks).forEach(list=>{
+        list.forEach(t=>{allTotal++;if(t.done)allDone++;});
+      });
+    });
 
-  renderCategoryChart();
-  renderTrendChart();
-  renderStreakCalendar();
+    document.getElementById('statsOverview').innerHTML=`
+      <div class="overview-card"><div class="ov-icon">📊</div><div class="ov-num">${rate}%</div><div class="ov-label">今日完成率</div></div>
+      <div class="overview-card"><div class="ov-icon">✅</div><div class="ov-num">${allDone}</div><div class="ov-label">累计完成任务</div></div>
+      <div class="overview-card"><div class="ov-icon">🔥</div><div class="ov-num">${state.streak||0}</div><div class="ov-label">连续打卡天数</div></div>
+      <div class="overview-card"><div class="ov-icon">📅</div><div class="ov-num">${activeDays}</div><div class="ov-label">活跃天数</div></div>
+    `;
+
+    drawCategoryChart();
+    drawTrendChart();
+    renderStreakCalendar();
+  } catch(e) { console.log('Stats render error:', e); }
 }
-function renderCategoryChart(){
+/* === Native Canvas Charts (no external libs) === */
+function drawCategoryChart(){
+  const canvas=document.getElementById('chartCategory');
+  if(!canvas)return;
+  const ctx=canvas.getContext('2d');
+  const dpr=window.devicePixelRatio||1;
+  const w=canvas.parentElement.clientWidth-32;
+  const h=220;
+  canvas.width=w*dpr;canvas.height=h*dpr;canvas.style.width=w+'px';canvas.style.height=h+'px';
+  ctx.scale(dpr,dpr);
+
+  ctx.clearRect(0,0,w,h);
   const today=getToday();
   const tasks=state.tasks[today]||{};
-  const labels=CATEGORIES.map(c=>c.name);
-  const doneData=CATEGORIES.map(c=>(tasks[c.id]||[]).filter(t=>t.done).length);
-  const undoneData=CATEGORIES.map(c=>(tasks[c.id]||[]).filter(t=>!t.done).length);
-  const colors=CATEGORIES.map(c=>c.color);
+  const cats=CATEGORIES;
+  const barW=Math.max(12,(w-60)/cats.length/2-4);
+  const gap=barW+4;
+  let maxVal=0;
+  cats.forEach(c=>{const v=(tasks[c.id]||[]).length;if(v>maxVal)maxVal=v;});
+  maxVal=Math.max(maxVal,3);
+  const chartH=h-40,chartY=10;
 
-  if(charts.category)charts.category.destroy();
-  const ctx=document.getElementById('chartCategory').getContext('2d');
-  charts.category=new Chart(ctx,{
-    type:'bar',
-    data:{
-      labels,
-      datasets:[
-        {label:'已完成',data:doneData,backgroundColor:colors,borderRadius:4},
-        {label:'未完成',data:undoneData,backgroundColor:colors.map(c=>c+'40'),borderRadius:4},
-      ]
-    },
-    options:{
-      responsive:true,maintainAspectRatio:false,
-      plugins:{legend:{position:'bottom',labels:{font:{size:11}}}},
-      scales:{x:{stacked:true,grid:{display:false},ticks:{font:{size:10}}},
-              y:{stacked:true,grid:{color:'#f1f5f9'},ticks:{font:{size:10}}}}
+  cats.forEach((c,i)=>{
+    const list=tasks[c.id]||[];
+    const done=list.filter(t=>t.done).length;
+    const undone=list.filter(t=>!t.done).length;
+    const x=30+i*gap*2;
+
+    // Undone bar
+    if(undone>0){
+      ctx.fillStyle=c.color+'50';
+      const bh=(undone/maxVal)*chartH;
+      ctx.fillRect(x,chartY+chartH-bh,barW,bh);
     }
+    // Done bar
+    if(done>0){
+      ctx.fillStyle=c.color;
+      const bh=(done/maxVal)*chartH;
+      ctx.fillRect(x+barW+2,chartY+chartH-bh,barW,bh);
+    }
+    // Label
+    ctx.fillStyle='#64748b';
+    ctx.font='9px sans-serif';
+    ctx.textAlign='center';
+    ctx.fillText(c.name.length>2?c.name.slice(0,2):c.name,x+barW+1,h-4);
   });
+
+  // Legend
+  ctx.fillStyle='#6366f1';ctx.fillRect(w-120,2,10,10);
+  ctx.fillStyle='#64748b';ctx.font='10px sans-serif';ctx.textAlign='left';
+  ctx.fillText('已完成',w-107,11);
+  ctx.fillStyle='#6366f150';ctx.fillRect(w-60,2,10,10);
+  ctx.fillText('未完成',w-47,11);
 }
-function renderTrendChart(){
-  const labels=[],doneRates=[];
+
+function drawTrendChart(){
+  const canvas=document.getElementById('chartTrend');
+  if(!canvas)return;
+  const ctx=canvas.getContext('2d');
+  const dpr=window.devicePixelRatio||1;
+  const w=canvas.parentElement.clientWidth-32;
+  const h=220;
+  canvas.width=w*dpr;canvas.height=h*dpr;canvas.style.width=w+'px';canvas.style.height=h+'px';
+  ctx.scale(dpr,dpr);
+
+  ctx.clearRect(0,0,w,h);
+  const pts=[];
   for(let i=6;i>=0;i--){
     const d=new Date();d.setDate(d.getDate()-i);
     const key=`${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')}`;
-    labels.push(`${d.getMonth()+1}/${d.getDate()}`);
     const tasks=state.tasks[key]||{};
     let done=0,total=0;
     CATEGORIES.forEach(cat=>{
@@ -1157,24 +1199,52 @@ function renderTrendChart(){
       total+=list.length;
       done+=list.filter(t=>t.done).length;
     });
-    doneRates.push(total>0?Math.round(done/total*100):0);
+    pts.push({label:`${d.getMonth()+1}/${d.getDate()}`,val:total>0?Math.round(done/total*100):0});
   }
-  if(charts.trend)charts.trend.destroy();
-  const ctx=document.getElementById('chartTrend').getContext('2d');
-  charts.trend=new Chart(ctx,{
-    type:'line',
-    data:{labels,datasets:[{
-      label:'完成率(%)',data:doneRates,
-      borderColor:'#6366f1',backgroundColor:'rgba(99,102,241,0.1)',
-      fill:true,tension:0.3,pointRadius:4,pointBackgroundColor:'#6366f1',
-    }]},
-    options:{
-      responsive:true,maintainAspectRatio:false,
-      plugins:{legend:{display:false}},
-      scales:{x:{grid:{display:false},ticks:{font:{size:10}}},
-              y:{min:0,max:100,grid:{color:'#f1f5f9'},ticks:{font:{size:10},callback:v=>v+'%'}}}
-    }
-  });
+
+  const padL=35,padR=15,padT=15,padB=30;
+  const cw=w-padL-padR,ch=h-padT-padB;
+
+  // Grid
+  ctx.strokeStyle='#f1f5f9';ctx.lineWidth=1;
+  for(let i=0;i<=4;i++){
+    const y=padT+ch*(1-i/4);
+    ctx.beginPath();ctx.moveTo(padL,y);ctx.lineTo(w-padR,y);ctx.stroke();
+    ctx.fillStyle='#94a3b8';ctx.font='9px sans-serif';ctx.textAlign='right';
+    ctx.fillText(i*25+'%',padL-4,y+3);
+  }
+
+  // Line
+  if(pts.length>0){
+    const stepX=cw/(pts.length-1||1);
+    ctx.strokeStyle='#6366f1';ctx.lineWidth=2;ctx.lineJoin='round';
+    ctx.beginPath();
+    pts.forEach((p,i)=>{
+      const x=padL+i*stepX;
+      const y=padT+ch*(1-p.val/100);
+      if(i===0)ctx.moveTo(x,y);else ctx.lineTo(x,y);
+    });
+    ctx.stroke();
+
+    // Fill
+    ctx.lineTo(padL+(pts.length-1)*stepX,padT+ch);
+    ctx.lineTo(padL,padT+ch);
+    ctx.closePath();
+    ctx.fillStyle='rgba(99,102,241,0.08)';
+    ctx.fill();
+
+    // Points
+    pts.forEach((p,i)=>{
+      const x=padL+i*stepX;
+      const y=padT+ch*(1-p.val/100);
+      ctx.fillStyle='#6366f1';ctx.beginPath();ctx.arc(x,y,4,0,Math.PI*2);ctx.fill();
+      ctx.fillStyle='#fff';ctx.beginPath();ctx.arc(x,y,2.5,0,Math.PI*2);ctx.fill();
+    });
+  }
+
+  // X labels
+  ctx.fillStyle='#94a3b8';ctx.font='10px sans-serif';ctx.textAlign='center';
+  pts.forEach((p,i)=>ctx.fillText(p.label,padL+i*(cw/(pts.length-1||1)),h-6));
 }
 function renderStreakCalendar(){
   const container=document.getElementById('streakCalendar');
