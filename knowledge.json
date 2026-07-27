@@ -1,7 +1,7 @@
 {
-  "updated_at": "2026-07-27 13:02:32",
-  "updated_ts": 1785128552,
-  "total_items": 58,
+  "updated_at": "2026-07-27 13:59:12",
+  "updated_ts": 1785131952,
+  "total_items": 65,
   "sources": {
     "B站": 24,
     "GitHub": 2,
@@ -620,6 +620,71 @@
         "source": "精选推荐",
         "category": "大学生成长",
         "type": "course",
+        "ts": 0
+      }
+    ],
+    "形象管理": [
+      {
+        "title": "男生穿搭入门：大学生日常穿搭指南",
+        "url": "https://www.bilibili.com/video/BV1ih4116778",
+        "desc": "从基础款到进阶搭配，适合大学生的穿搭思路",
+        "source": "精选·B站",
+        "category": "形象管理",
+        "type": "video",
+        "ts": 1785131952
+      },
+      {
+        "title": "女生穿搭基础课：用最少的衣服搭出100种风格",
+        "url": "https://www.bilibili.com/video/BV1b64y1U7TG",
+        "desc": "胶囊衣橱概念，学生党省钱穿搭法",
+        "source": "精选·B站",
+        "category": "形象管理",
+        "type": "video",
+        "ts": 1785131952
+      },
+      {
+        "title": "初学者化妆教程：男生日常妆容",
+        "url": "https://www.bilibili.com/video/BV1LF411m7qk",
+        "desc": "男生基础护肤+遮瑕+眉毛，自然不夸张",
+        "source": "精选·B站",
+        "category": "形象管理",
+        "type": "video",
+        "ts": 1785131952
+      },
+      {
+        "title": "学生党化妆入门：全套流程详解",
+        "url": "https://www.bilibili.com/video/BV16u411z7Kj",
+        "desc": "从护肤到定妆，新手友好化妆教程",
+        "source": "精选·B站",
+        "category": "形象管理",
+        "type": "video",
+        "ts": 1785131952
+      },
+      {
+        "title": "体态决定气质：站姿/走姿/坐姿矫正",
+        "url": "https://www.bilibili.com/video/BV15x411U7vR",
+        "desc": "改善含胸驼背，提升整体形象气质",
+        "source": "精选·B站",
+        "category": "形象管理",
+        "type": "video",
+        "ts": 1785131952
+      },
+      {
+        "title": "大学生护肤入门：分辨肤质+基础流程",
+        "url": "https://www.bilibili.com/video/BV1SJ411x7Sj",
+        "desc": "告别盲目买护肤品，科学护肤第一步",
+        "source": "精选·B站",
+        "category": "形象管理",
+        "type": "video",
+        "ts": 1785131952
+      },
+      {
+        "title": "📖 小红书 — 穿搭美妆灵感库",
+        "url": "https://www.xiaohongshu.com/",
+        "desc": "搜索#学生穿搭 #平价化妆品 获取海量灵感",
+        "source": "精选推荐",
+        "category": "形象管理",
+        "type": "tool",
         "ts": 0
       }
     ]
