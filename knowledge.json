@@ -1,6 +1,6 @@
 {
-  "updated_at": "2026-07-27 13:59:12",
-  "updated_ts": 1785131952,
+  "updated_at": "2026-07-27 14:02:05",
+  "updated_ts": 1785132125,
   "total_items": 65,
   "sources": {
     "B站": 24,
@@ -625,27 +625,9 @@
     ],
     "形象管理": [
       {
-        "title": "男生穿搭入门：大学生日常穿搭指南",
-        "url": "https://www.bilibili.com/video/BV1ih4116778",
-        "desc": "从基础款到进阶搭配，适合大学生的穿搭思路",
-        "source": "精选·B站",
-        "category": "形象管理",
-        "type": "video",
-        "ts": 1785131952
-      },
-      {
         "title": "女生穿搭基础课：用最少的衣服搭出100种风格",
         "url": "https://www.bilibili.com/video/BV1b64y1U7TG",
         "desc": "胶囊衣橱概念，学生党省钱穿搭法",
-        "source": "精选·B站",
-        "category": "形象管理",
-        "type": "video",
-        "ts": 1785131952
-      },
-      {
-        "title": "初学者化妆教程：男生日常妆容",
-        "url": "https://www.bilibili.com/video/BV1LF411m7qk",
-        "desc": "男生基础护肤+遮瑕+眉毛，自然不夸张",
         "source": "精选·B站",
         "category": "形象管理",
         "type": "video",
@@ -686,6 +668,24 @@
         "category": "形象管理",
         "type": "tool",
         "ts": 0
+      },
+      {
+        "title": "女生发型推荐：根据脸型选发型",
+        "url": "https://www.bilibili.com/video/BV1Rk4y1q7Ui",
+        "desc": "圆脸/方脸/长脸适合的发型全攻略",
+        "source": "精选·B站",
+        "category": "形象管理",
+        "type": "video",
+        "ts": 1785132125
+      },
+      {
+        "title": "学生党平价化妆品推荐",
+        "url": "https://www.bilibili.com/video/BV1D4411U7yX",
+        "desc": "百元以内好用的化妆品合集，学生友好",
+        "source": "精选·B站",
+        "category": "形象管理",
+        "type": "video",
+        "ts": 1785132125
       }
     ]
   }
