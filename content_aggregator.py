@@ -2,7 +2,7 @@
 """
 内容聚合器 v2 — 每日自动从多平台抓取高质量内容
 平台: B站 (搜索+每周必看), GitHub Trending, 掘金推荐, 精选轮换
-分类: 大数据技术, 编程开发, AI/机器学习, 基金理财, 健身健康, 大学生成长
+分类: 大数据技术, 编程开发, AI/机器学习, 基金理财, 健身健康, 大学生成长, 形象管理
 输出: knowledge.json
 """
 
@@ -68,6 +68,7 @@ BILIBILI_QUERIES = [
     ("基金 定投 理财 入门", "基金理财"),
     ("大学生 健身 增肌 减脂", "健身健康"),
     ("大学生 学习方法 自律", "大学生成长"),
+    ("大学生 穿搭 化妆 护肤", "形象管理"),
     ("数据分析师 就业", "职业发展"),
     ("Tableau PowerBI 可视化", "大数据技术"),
     ("LeetCode 算法 刷题", "编程开发"),
@@ -371,6 +372,16 @@ WISDOM_ROTATION = [
         {"title": "📖 数据分析面试高频真题解析", "url": "https://www.bilibili.com/video/BV1jZ4y1p7rq", "desc": "SQL/统计学/业务分析 面试真题讲解（B站视频）", "source": "精选·B站", "category": "职业发展", "type": "video"},
         {"title": "📖 简历这样写，面试邀约多3倍", "url": "https://www.bilibili.com/video/BV12a41187r2", "desc": "STAR法则+项目包装+量化成果详解（B站视频）", "source": "精选·B站", "category": "职业发展", "type": "video"},
         {"title": "📖 大学生实习避坑指南", "url": "https://www.bilibili.com/video/BV1Hv4y1H7eN", "desc": "如何辨别好实习、保护权益、最大化收获（B站视频）", "source": "精选·B站", "category": "职业发展", "type": "video"},
+    ],
+    # ── 形象管理（女生专区）──
+    [
+        {"title": "📖 女生胶囊衣橱穿搭法", "url": "https://www.bilibili.com/video/BV1b64y1U7TG", "desc": "用最少的衣服搭出100种风格（B站视频）", "source": "精选·B站", "category": "形象管理", "type": "video"},
+        {"title": "📖 新手化妆入门：全套流程", "url": "https://www.bilibili.com/video/BV16u411z7Kj", "desc": "从护肤到定妆，学生党友好化妆教程（B站视频）", "source": "精选·B站", "category": "形象管理", "type": "video"},
+        {"title": "📖 学生党平价化妆品推荐", "url": "https://www.bilibili.com/video/BV1D4411U7yX", "desc": "百元以内好用的化妆品合集，学生友好（B站视频）", "source": "精选·B站", "category": "形象管理", "type": "video"},
+        {"title": "📖 根据脸型选发型全攻略", "url": "https://www.bilibili.com/video/BV1Rk4y1q7Ui", "desc": "圆脸/方脸/长脸适合的发型推荐（B站视频）", "source": "精选·B站", "category": "形象管理", "type": "video"},
+        {"title": "📖 体态决定气质：矫正训练", "url": "https://www.bilibili.com/video/BV15x411U7vR", "desc": "站姿/走姿/坐姿改善，提升整体形象（B站视频）", "source": "精选·B站", "category": "形象管理", "type": "video"},
+        {"title": "📖 科学护肤入门指南", "url": "https://www.bilibili.com/video/BV1SJ411x7Sj", "desc": "分辨肤质+基础流程，告别盲目护肤（B站视频）", "source": "精选·B站", "category": "形象管理", "type": "video"},
+        {"title": "📖 小红书穿搭美妆灵感", "url": "https://www.xiaohongshu.com/", "desc": "搜索#学生穿搭 #平价化妆品 获取海量灵感", "source": "精选推荐", "category": "形象管理", "type": "tool"},
     ],
 ]
 
