@@ -1281,16 +1281,9 @@ function setupTabs(){
       if(btn.dataset.tab==='review'){renderReview();}
     });
   });
-}
+
   document.getElementById('knowledgeSearch').addEventListener('input', renderKnowledge);
-  // Category filter change → re-render
   document.getElementById('knowledgeCatFilter').addEventListener('change', renderKnowledge);
-  // Tab switch to knowledge → re-render
-  document.querySelectorAll('.tab-btn[data-tab="knowledge"]').forEach(btn => {
-    btn.addEventListener('click', () => {
-      // Render handled by renderKnowledge which checks KNOWLEDGE_DATA
-    });
-  });
 }
 function showToast(msg){
   const t=document.getElementById('toast');
