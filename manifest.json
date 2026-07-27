@@ -1,0 +1,25 @@
+{
+  "name": "个人成长工作台",
+  "short_name": "成长工作台",
+  "description": "大数据管理与应用专业 · 个人成长工作台 — 任务管理、知识库、每日复盘、数据统计",
+  "start_url": "/index.html",
+  "display": "standalone",
+  "orientation": "portrait",
+  "theme_color": "#6366f1",
+  "background_color": "#f0f2f5",
+  "icons": [
+    {
+      "src": "/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "categories": ["productivity", "education", "lifestyle"]
+}
