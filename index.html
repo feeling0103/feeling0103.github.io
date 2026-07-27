@@ -119,6 +119,9 @@ input,textarea,select{font-family:inherit;font-size:inherit}
 .task-item.done .task-checkbox{background:var(--success);border-color:var(--success)}
 .task-item.done .task-checkbox::after{content:'✓';color:#fff;font-size:12px;font-weight:700}
 .task-item.done .task-text{text-decoration:line-through;color:var(--text-light)}
+.task-item.optional .task-priority{background:var(--text-lighter)}
+.task-item.optional .task-checkbox{border-style:dashed}
+.opt-tag{font-size:0.65rem;color:var(--text-lighter);background:var(--bg);padding:1px 5px;border-radius:8px;margin-left:4px;border:1px dashed var(--text-lighter)}
 .task-text{font-size:0.875rem;flex:1;line-height:1.4}
 .task-priority{
   width:6px;height:6px;border-radius:50%;flex-shrink:0;margin-top:7px;
@@ -522,7 +525,7 @@ const DEFAULT_TASKS = {
   ],
   growth:[
     {text:'阅读 30 分钟（专业书/通识书）',priority:'medium'},
-    {text:'写今日学习笔记/博客',priority:'low'},
+    {text:'每日随笔',priority:'low'},
   ],
   image:[
     {text:'护肤流程（早晚）',priority:'medium'},
@@ -532,7 +535,7 @@ const DEFAULT_TASKS = {
     {text:'练习沟通表达（朗读/演讲练习）',priority:'low'},
   ],
   mind:[
-    {text:'冥想/深呼吸放松 10 分钟',priority:'medium'},
+    {text:'冥想/深呼吸放松 10 分钟',priority:'medium',optional:true},
     {text:'学习一个认知模型/思维框架',priority:'low'},
   ],
 };
@@ -677,7 +680,7 @@ function loadData(){
     state={...state,...parsed};
   }
   // 任务调度规则版本号：更新规则后+1，自动重建今日任务
-  const SCHEDULE_VERSION = 2;
+  const SCHEDULE_VERSION = 3;
   if(state.scheduleVersion !== SCHEDULE_VERSION){
     state.scheduleVersion = SCHEDULE_VERSION;
     // 清除今日任务缓存，强制重新生成
@@ -744,6 +747,12 @@ function applyDailySchedule(tasks, now){
   if(!financeLearnDays.includes(dayOfWeek) && tasks.finance){
     tasks.finance = tasks.finance.filter(t => !t.text.includes('学习理财知识'));
   }
+
+  // 规则5: 浏览招聘岗位每周两次（周二、周五）
+  const careerBrowseDays = [2, 5]; // Tue, Fri
+  if(!careerBrowseDays.includes(dayOfWeek) && tasks.career){
+    tasks.career = tasks.career.filter(t => !t.text.includes('浏览招聘平台'));
+  }
 }
 
 /* ==================== Header ==================== */
@@ -779,8 +788,8 @@ function updateHeaderStats(){
   let done=0,total=0;
   for(const cat of CATEGORIES){
     const list=tasks[cat.id]||[];
-    total+=list.length;
-    done+=list.filter(t=>t.done).length;
+    total+=list.filter(t=>!t.optional).length;
+    done+=list.filter(t=>t.done && !t.optional).length;
   }
   document.getElementById('todayDone').textContent=done;
   document.getElementById('todayTotal').textContent=total;
@@ -796,8 +805,8 @@ function updateHeaderStats(){
     const t=state.tasks[key]||{};
     for(const cat of CATEGORIES){
       const list=t[cat.id]||[];
-      weekTotal+=list.length;
-      weekDone+=list.filter(x=>x.done).length;
+      weekTotal+=list.filter(x=>!x.optional).length;
+      weekDone+=list.filter(x=>x.done && !x.optional).length;
     }
   }
   const rate=weekTotal>0?Math.round(weekDone/weekTotal*100):0;
@@ -811,8 +820,11 @@ function renderTasks(){
   const tasks=state.tasks[today]||{};
   grid.innerHTML=CATEGORIES.map(cat=>{
     const list=tasks[cat.id]||[];
-    const done=list.filter(t=>t.done).length;
-    const rate=list.length>0?Math.round(done/list.length*100):0;
+    const required=list.filter(t=>!t.optional);
+    const optional=list.filter(t=>t.optional);
+    const done=required.filter(t=>t.done).length;
+    const rate=required.length>0?Math.round(done/required.length*100):0;
+    const optSuffix=optional.length>0?` <span style="opacity:0.5;font-size:0.7rem">+${optional.length}可选</span>`:'';
     return `
     <div class="task-card" style="border-top:3px solid ${cat.color}">
       <div class="task-card-header">
@@ -820,7 +832,7 @@ function renderTasks(){
           <span class="cat-icon">${cat.icon}</span>
           <span>${cat.name}</span>
         </div>
-        <span class="task-card-count">${done}/${list.length}</span>
+        <span class="task-card-count">${done}/${required.length}${optSuffix}</span>
       </div>
       <div class="task-progress-bar">
         <div class="task-progress-fill" style="width:${rate}%;background:${cat.color}"></div>
@@ -828,10 +840,10 @@ function renderTasks(){
       <div class="task-list" id="tasklist-${cat.id}">
         ${list.length===0?'<div style="text-align:center;padding:12px;color:var(--text-light);font-size:0.8rem">暂无任务，添加一个吧 👇</div>':''}
         ${list.map((t,i)=>`
-          <div class="task-item ${t.done?'done':''}" onclick="toggleTask('${cat.id}',${i})">
+          <div class="task-item ${t.done?'done':''} ${t.optional?'optional':''}" onclick="toggleTask('${cat.id}',${i})">
             <div class="task-priority priority-${t.priority||'low'}"></div>
             <div class="task-checkbox"></div>
-            <span class="task-text">${t.text}</span>
+            <span class="task-text">${t.text}${t.optional?' <span class="opt-tag">可选</span>':''}</span>
             <button class="task-delete" onclick="event.stopPropagation();deleteTask('${cat.id}',${i})">×</button>
           </div>
         `).join('')}
