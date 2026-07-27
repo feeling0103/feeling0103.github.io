@@ -676,6 +676,13 @@ function loadData(){
     const parsed=JSON.parse(saved);
     state={...state,...parsed};
   }
+  // 任务调度规则版本号：更新规则后+1，自动重建今日任务
+  const SCHEDULE_VERSION = 1;
+  if(state.scheduleVersion !== SCHEDULE_VERSION){
+    state.scheduleVersion = SCHEDULE_VERSION;
+    // 清除今日任务缓存，强制重新生成
+    delete state.tasks[getToday()];
+  }
   // Ensure tasks exist for today
   const today=getToday();
   if(!state.tasks[today]){
@@ -686,6 +693,8 @@ function loadData(){
         state.tasks[today][cat.id]=state.tasks[today][cat.id].map(t=>({...t,done:false}));
       }
     }
+    // ── 每日动态调度规则 ──
+    applyDailySchedule(state.tasks[today], new Date());
   }
   if(!state.goals[today.slice(0,7)]){
     state.goals[today.slice(0,7)]=DEFAULT_GOALS.map(g=>({...g,current:0}));
@@ -698,6 +707,37 @@ function saveData(){
 function getToday(){
   const d=new Date();
   return `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')}`;
+}
+
+/* ── Daily Scheduling ── */
+function applyDailySchedule(tasks, now){
+  const dayOfWeek = now.getDay(); // 0=Sun 1=Mon 2=Tue 3=Wed 4=Thu 5=Fri 6=Sat
+
+  // 规则1: 健身训练只在三/五/六/日
+  const fitnessDays = [3, 5, 6, 0]; // Wed, Fri, Sat, Sun
+  if(!fitnessDays.includes(dayOfWeek) && tasks.fitness){
+    tasks.fitness = tasks.fitness.filter(t => !t.text.includes('完成今日训练计划'));
+  }
+
+  // 规则2: LeetCode / B站视频 / 面试知识点 三���一每日轮换
+  const dayNum = Math.floor(now.getTime() / 86400000); // days since epoch
+  const rotIdx = dayNum % 3;
+  const rotation = [
+    {text:'LeetCode 刷题 2 道', cat:'study'},
+    {text:'看一节B站技术教程视频', cat:'study'},
+    {text:'学习一个面试常考知识点', cat:'career'},
+  ];
+  rotation.forEach((item, i) => {
+    if(i !== rotIdx && tasks[item.cat]){
+      tasks[item.cat] = tasks[item.cat].filter(t => t.text !== item.text);
+    }
+  });
+
+  // 规则3: 学习思维框架每周两次（周一和周四）
+  const frameworkDays = [1, 4]; // Mon, Thu
+  if(!frameworkDays.includes(dayOfWeek) && tasks.mind){
+    tasks.mind = tasks.mind.filter(t => !t.text.includes('学习一个认知模型'));
+  }
 }
 
 /* ==================== Header ==================== */
